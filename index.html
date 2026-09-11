@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arquitectura Monolítica | Guía Interactiva & Simulación</title>
+  <meta name="description" content="Aprende qué es la Arquitectura Monolítica, sus características, funcionamiento, ventajas, desventajas y simula su comportamiento en tiempo real.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          <div class="logo-box">
+            <i class="fa-solid fa-cube"></i>
+          </div>
+          <span>Monolith.io</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#definicion">Definición</a></li>
+          <li><a href="#caracteristicas">Características</a></li>
+          <li><a href="#simulador">Simulador</a></li>
+          <li><a href="#ventajas-desventajas">Pros & Contras</a></li>
+          <li><a href="#comparativa">Comparativa</a></li>
+        </ul>
+        <div class="nav-cta">
+          <button onclick="downloadArchitectureDoc()" class="btn btn-secondary">
+            <i class="fa-solid fa-download"></i> Descargar Ficha
+          </button>
+          <a href="#simulador" class="btn btn-primary">
+            <i class="fa-solid fa-play"></i> Probar Simulador
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">
+        <i class="fa-solid fa-layer-group"></i> Patrones de Arquitectura de Software
+      </div>
+      <h1>Comprende la <span>Arquitectura Monolítica</span></h1>
+      <p>Descubre cómo funcionan las aplicaciones construidas como un único sistema unificado. Explora sus conceptos clave, experimenta en vivo con nuestro simulador interactivo y descarga la arquitectura completa.</p>
+      <div class="hero-actions">
+        <a href="#simulador" class="btn btn-primary">
+          <i class="fa-solid fa-terminal"></i> Iniciar Simulación en Vivo
+        </a>
+        <button onclick="downloadArchitectureDoc()" class="btn btn-secondary">
+          <i class="fa-solid fa-file-arrow-down"></i> Descargar Resumen (MD)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Definición y Características -->
+  <section id="definicion">
+    <div class="container">
+      <h2 class="section-title">¿Qué es un Monolito?</h2>
+      <p class="section-desc">Fundamentos y conceptos principales de la arquitectura monolítica tradicionales en el desarrollo de software.</p>
+
+      <div class="grid-3">
+        <div class="glass-card" id="card-def">
+          <div class="card-icon">
+            <i class="fa-solid fa-box"></i>
+          </div>
+          <h3>Definición</h3>
+          <p>Un <strong>monolito</strong> es una arquitectura de software en la que las principales funcionalidades de una aplicación se encuentran integradas dentro de un mismo sistema y se ejecutan como una sola unidad. Todos los módulos forman parte de una misma aplicación.</p>
+        </div>
+
+        <div class="glass-card" id="card-caract">
+          <div class="card-icon">
+            <i class="fa-solid fa-gears"></i>
+          </div>
+          <h3>Características</h3>
+          <p>Tiene un único proyecto que contiene sus diferentes componentes. Estos componentes están conectados entre sí, comparten recursos, configuraciones y, en la mayoría de los casos, una misma base de datos centralizada.</p>
+        </div>
+
+        <div class="glass-card" id="card-func">
+          <div class="card-icon">
+            <i class="fa-solid fa-diagram-project"></i>
+          </div>
+          <h3>Funcionamiento</h3>
+          <p>Todas las solicitudes de los usuarios son atendidas por la misma aplicación. Por ejemplo, en un sistema de ventas existen módulos de usuarios, productos, pedidos y pagos trabajando juntos dentro del mismo sistema.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Simulador de Arquitectura Monolítica Interactivo -->
+  <section id="simulador">
+    <div class="container">
+      <div class="badge">
+        <i class="fa-solid fa-flask"></i> Laboratorio Interactivo
+      </div>
+      <h2 class="section-title">Simulador de Arquitectura Monolítica</h2>
+      <p class="section-desc">Interactúa con una simulación en tiempo real de una tienda virtual monolítica. Envía peticiones, observa cómo comparten recursos y experimenta qué sucede al redesplegar o ante una falla.</p>
+
+      <div class="simulator-container">
+        <!-- Simulator Header Status -->
+        <div class="simulator-header">
+          <div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #fff;">Sistema E-Commerce Monolítico</h3>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Runtime: Node.js / Java Process (PID 4021) | DB: PostgreSQL Central</span>
+          </div>
+          <div class="status-badge" id="app-status">
+            <span class="status-dot"></span> Monolito Operativo
+          </div>
+        </div>
+
+        <!-- Visual Monolith Box -->
+        <div class="monolith-box" id="monolith-box">
+          <div class="monolith-title-tag">Proceso Único (Aplicación Monolítica)</div>
+          
+          <div class="modules-grid">
+            <div class="module-card" id="mod-user">
+              <div class="module-icon"><i class="fa-solid fa-user-gear"></i></div>
+              <h4 style="font-size: 0.95rem; color: #fff;">Módulo Usuarios</h4>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Autenticación y Perfiles</span>
+            </div>
+
+            <div class="module-card" id="mod-catalog">
+              <div class="module-icon"><i class="fa-solid fa-store"></i></div>
+              <h4 style="font-size: 0.95rem; color: #fff;">Módulo Catálogo</h4>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Productos e Inventario</span>
+            </div>
+
+            <div class="module-card" id="mod-cart">
+              <div class="module-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+              <h4 style="font-size: 0.95rem; color: #fff;">Módulo Carrito</h4>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Gestión de Compras</span>
+            </div>
+
+            <div class="module-card" id="mod-order">
+              <div class="module-icon"><i class="fa-solid fa-receipt"></i></div>
+              <h4 style="font-size: 0.95rem; color: #fff;">Módulo Pedidos</h4>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Facturación y Envíos</span>
+            </div>
+
+            <div class="module-card" id="mod-payment">
+              <div class="module-icon"><i class="fa-solid fa-credit-card"></i></div>
+              <h4 style="font-size: 0.95rem; color: #fff;">Módulo Pagos</h4>
+              <span style="font-size: 0.75rem; color: var(--text-muted);">Pasarela de Pago</span>
+            </div>
+          </div>
+
+          <!-- Shared Database Node -->
+          <div class="database-node">
+            <i class="fa-solid fa-database" style="font-size: 1.5rem;"></i>
+            <span>Base de Datos Centralizada Unificada (Tablas: users, products, orders, payments)</span>
+          </div>
+        </div>
+
+        <!-- Controls & Output Console -->
+        <div class="sim-controls">
+          <div class="action-buttons-panel">
+            <h4 style="color: var(--text-muted); font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">1. Probar Peticiones HTTP</h4>
+            <div class="action-btn-group">
+              <button onclick="simulateRequest('LOGIN')" class="btn btn-secondary" style="font-size: 0.85rem;">
+                <i class="fa-solid fa-right-to-bracket"></i> Login Usuario
+              </button>
+              <button onclick="simulateRequest('CATALOG')" class="btn btn-secondary" style="font-size: 0.85rem;">
+                <i class="fa-solid fa-boxes-stacked"></i> Consultar Productos
+              </button>
+              <button onclick="simulateRequest('CHECKOUT')" class="btn btn-secondary" style="font-size: 0.85rem;">
+                <i class="fa-solid fa-bag-shopping"></i> Realizar Checkout
+              </button>
+            </div>
+
+            <h4 style="color: var(--text-muted); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; margin-top: 1rem;">2. Simular Escenarios Reales</h4>
+            <div class="action-btn-group">
+              <button onclick="simulateRedeploy()" class="btn btn-secondary" style="font-size: 0.85rem; border-color: rgba(245, 158, 11, 0.4);">
+                <i class="fa-solid fa-rotate"></i> Redesplegar Aplicación Completa
+              </button>
+              <button onclick="simulateCrash()" class="btn btn-danger" style="font-size: 0.85rem;">
+                <i class="fa-solid fa-triangle-exclamation"></i> Simular Error Crítico en Módulo
+              </button>
+            </div>
+          </div>
+
+          <!-- Console Terminal -->
+          <div class="terminal-box">
+            <div class="terminal-header">
+              <div class="dot dot-red"></div>
+              <div class="dot dot-yellow"></div>
+              <div class="dot dot-green"></div>
+              <span style="font-size: 0.75rem; color: var(--text-dim); margin-left: 0.5rem;">Console Logs</span>
+            </div>
+            <div class="terminal-logs" id="terminal-logs">
+              <div class="log-entry log-info">[00:00:00] Servidor Monolítico iniciado correctamente en puerto :8080</div>
+              <div class="log-entry log-success">[00:00:00] Conexión establecida con la Base de Datos Única.</div>
+              <div class="log-entry log-info">Haz clic en los botones de prueba superiores para simular el tráfico.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Ventajas y Desventajas -->
+  <section id="ventajas-desventajas">
+    <div class="container">
+      <h2 class="section-title">Ventajas y Desventajas</h2>
+      <p class="section-desc">Evaluación del enfoque monolítico para comprender cuándo es la opción correcta.</p>
+
+      <div class="pros-cons-grid">
+        <!-- Ventajas -->
+        <div class="glass-card pro-card">
+          <div class="card-icon" style="color: var(--accent-green); background: rgba(16, 185, 129, 0.1);">
+            <i class="fa-solid fa-thumbs-up"></i>
+          </div>
+          <h3>Ventajas</h3>
+          <ul class="feature-list">
+            <li><strong>Desarrollo y Organización Sencillos:</strong> Ideal para proyectos pequeños o medianos al concentrar todo el código en un solo lugar.</li>
+            <li><strong>Pruebas e Instalación Iniciales Rápidas:</strong> Solo existe una aplicación que debe configurarse, probarse y desplegarse.</li>
+            <li><strong>Comunicación Directa:</strong> La comunicación entre componentes es directa y en memoria, sin latencia de red ni overhead HTTP.</li>
+            <li><strong>Gestión de Transacciones Simples:</strong> Permite manejar transacciones ACID nativas en una única base de datos.</li>
+          </ul>
+        </div>
+
+        <!-- Desventajas -->
+        <div class="glass-card con-card">
+          <div class="card-icon" style="color: var(--accent-red); background: rgba(239, 68, 68, 0.1);">
+            <i class="fa-solid fa-thumbs-down"></i>
+          </div>
+          <h3>Desventajas</h3>
+          <ul class="feature-list">
+            <li><strong>Mantenimiento Complejo a Gran Escala:</strong> Conforme crece el sistema, el código se vuelve acoplado y difícil de modificar.</li>
+            <li><strong>Despliegues Totales Obligatorios:</strong> Un pequeño cambio en una funcionalidad requiere volver a empaquetar y desplegar toda la aplicación.</li>
+            <li><strong>Dificultad para Escalar Especificidades:</strong> No se puede escalar solo una función saturada; debe escalarse el sistema completo.</li>
+            <li><strong>Punto Único de Falla:</strong> Un bug o crash en un componente (ej. pagos) puede suspender todo el sistema completo.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparativa Monolito vs Microservicios -->
+  <section id="comparativa">
+    <div class="container">
+      <h2 class="section-title">Monolitos vs Microservicios</h2>
+      <p class="section-desc">Relación y diferencias con otras arquitecturas modernas.</p>
+
+      <div class="glass-card">
+        <p style="margin-bottom: 1.5rem;">El enfoque monolítico se diferencia de arquitecturas como los microservicios, donde las funcionalidades se dividen en servicios independientes que pueden desarrollarse, desplegarse y escalarse por separado. La elección entre un monolito y otras arquitecturas depende del tamaño, los requisitos y las necesidades del proyecto.</p>
+
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Criterio</th>
+                <th>Arquitectura Monolítica</th>
+                <th>Microservicios</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Estructura</strong></td>
+                <td>Una sola unidad ejecutable y base de código.</td>
+                <td>Múltiples servicios independientes y desacoplados.</td>
+              </tr>
+              <tr>
+                <td><strong>Despliegue</strong></td>
+                <td>Se despliega la aplicación completa.</td>
+                <td>Despliegues independientes por cada microservicio.</td>
+              </tr>
+              <tr>
+                <td><strong>Escalabilidad</strong></td>
+                <td>Se escala toda la aplicación.</td>
+                <td>Se escala granularmente el servicio que lo requiera.</td>
+              </tr>
+              <tr>
+                <td><strong>Base de Datos</strong></td>
+                <td>Normalmente una misma base de datos compartida.</td>
+                <td>Cada microservicio posee su propia base de datos.</td>
+              </tr>
+              <tr>
+                <td><strong>Complejidad Operativa</strong></td>
+                <td>Baja al inicio, mayor cuando crece en exceso.</td>
+                <td>Alta desde el inicio (requiere orquestación, mallas, etc.).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seccion de Descarga Automatica -->
+  <section class="download-section">
+    <div class="container">
+      <div class="download-card">
+        <i class="fa-solid fa-file-pdf" style="font-size: 3rem; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
+        <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 1rem;">¿Necesitas llevarte esta información?</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem;">Descarga automáticamente la ficha técnica completa y estructurada con todos los conceptos, ventajas, desventajas y el resumen de la arquitectura monolítica.</p>
+        <button onclick="downloadArchitectureDoc()" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">
+          <i class="fa-solid fa-download"></i> Descargar Documentación (.MD)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Monolith.io — Guía Educativa de Arquitectura de Software.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
